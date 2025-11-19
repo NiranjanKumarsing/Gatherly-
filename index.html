@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gatherly</title>
-    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,522 +11,418 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav>
-      <div class="cont nav-in">
-        <div class="brand" onclick="go('home')">
-          <i class="fas fa-users-rays"></i> Gatherly
-        </div>
+    <input type="radio" name="page" id="nav-home" class="controller" checked />
+    <input type="radio" name="page" id="nav-features" class="controller" />
+    <input type="radio" name="page" id="nav-solutions" class="controller" />
+    <input type="radio" name="page" id="nav-enterprise" class="controller" />
+    <input type="radio" name="page" id="nav-pricing" class="controller" />
+    <input type="radio" name="page" id="nav-resources" class="controller" />
+    <input type="radio" name="page" id="nav-contact" class="controller" />
+    <input type="radio" name="page" id="nav-login" class="controller" />
+    <input type="checkbox" id="chk-login" class="controller" />
+    <input type="checkbox" id="chk-dark" class="controller" />
+    <input type="checkbox" id="chk-new-post" class="controller" /> 
+    <input type="checkbox" id="chk-new-comm" class="controller" />
+    <div class="main-wrapper">
+      <nav>
+        <div class="cont nav-in">
+          <label for="nav-home" class="brand">
+            <i class="fas fa-users-rays"></i> Gatherly
+          </label>
+          <div class="links" id="guest-nav">
+            <label for="nav-features">Features</label>
+            <label for="nav-solutions">Solutions</label>
+            <label for="nav-enterprise">Enterprise</label>
+            <label for="nav-resources">Resources</label>
+            <label for="nav-pricing">Pricing</label>
+            <label for="chk-dark" class="btn-dark-toggle">
+              <i class="fas fa-moon moon-icon"></i>
+              <i class="fas fa-sun sun-icon"></i>
+            </label>
 
-        <div class="links" id="guest-nav">
-          <a onclick="go('features')">Features</a>
-          <a onclick="go('solutions')">Solutions</a>
-          <a onclick="go('enterprise')">Enterprise</a>
-          <a onclick="go('resources')">Resources</a>
-          <a onclick="go('pricing')">Pricing</a>
-          <span
-            style="border-left: 1px solid #ddd; height: 20px; margin: 0 10px"
-          ></span>
-          <button class="btn-txt" onclick="go('login')">Sign in</button>
-          <button class="btn" onclick="go('contact')" style="padding: 8px 20px">
-            Talk to sales
-          </button>
-        </div>
-
-        <div class="links hide" id="user-nav">
-          <a onclick="go('dash')"><i class="fas fa-stream"></i> Feed</a>
-          <a onclick="go('create')"><i class="fas fa-plus"></i> Create</a>
-          <a onclick="go('profile')"><i class="fas fa-user"></i> Profile</a>
-          <a onclick="logout()" style="color: #ef4444">Logout</a>
-        </div>
-
-        <div class="menu-btn" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </div>
-      </div>
-    </nav>
-
-    <div class="mob-menu" id="m-menu">
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 20px;
-        "
-      >
-        <span class="brand">Menu</span>
-        <i
-          class="fas fa-times"
-          style="font-size: 1.5rem"
-          onclick="toggleMenu()"
-        ></i>
-      </div>
-      <a onclick="go('features'); toggleMenu()">Features</a>
-      <a onclick="go('solutions'); toggleMenu()">Solutions</a>
-      <a onclick="go('pricing'); toggleMenu()">Pricing</a>
-      <a onclick="go('login'); toggleMenu()">Sign In</a>
-      <a onclick="go('contact'); toggleMenu()" style="color: var(--green)"
-        >Contact Sales</a
-      >
-    </div>
-
-    <div id="p-home" class="page show">
-      <div class="hero">
-        <div class="blob" style="top: -20%; left: -10%"></div>
-        <div
-          class="blob"
-          style="
-            bottom: -20%;
-            right: -10%;
-            background: radial-gradient(circle, #bae6fd 0%, transparent 70%);
-          "
-        ></div>
-
-        <div class="cont">
-          <div class="anim-up">
-            <span class="badge">New: AI Summaries</span>
-            <h1>
-              Where Communities <br />
-              <span class="txt-green">Come to Life</span>
-            </h1>
-            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px">
-              Replace noisy group chats with Gatherly. Organize discussions,
-              host events, and grow your tribe in a space designed for
-              connection.
-            </p>
-            <div style="margin-bottom: 20px">
-              <button
-                class="btn"
-                style="padding: 15px 35px; font-size: 1.1rem; margin: 5px"
-                onclick="go('login')"
-              >
-                Get started for free
-              </button>
-              <button
-                class="btn-out"
-                style="padding: 15px 35px; font-size: 1.1rem; margin: 5px"
-                onclick="go('contact')"
-              >
-                Talk to sales
-              </button>
-            </div>
-            <p class="sm-txt">No credit card required • Cancel anytime</p>
+            <span
+              style="border-left: 1px solid #ddd; height: 20px; margin: 0 5px"
+            ></span>
+            <label for="nav-login" class="btn-txt">Sign in</label>
+            <label for="nav-contact" class="btn">Talk to sales</label>
           </div>
 
-          <div style="margin-top: 80px">
-            <p
-              style="
-                font-weight: bold;
-                text-transform: uppercase;
-                font-size: 0.8rem;
-                margin-bottom: 20px;
-                opacity: 0.7;
-              "
-            >
-              Trusted by teams at
-            </p>
-            <div
-              style="display: flex; justify-content: center; flex-wrap: wrap"
-            >
-              <i class="fab fa-aws s-icon"></i>
-              <i class="fab fa-google s-icon"></i>
-              <i class="fab fa-spotify s-icon"></i>
-              <i class="fab fa-stripe s-icon"></i>
-              <i class="fab fa-airbnb s-icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div class="links" id="user-nav" style="display: none">
+            <label class="active"><i class="fas fa-stream"></i> Feed</label>
+            <label for="nav-home"><i class="fas fa-plus"></i> Create</label>
+            <label for="nav-home"><i class="fas fa-user"></i> Profile</label>
 
-      <div class="cont" style="padding: 60px 20px">
-        <h2 class="center">Everything you need to grow</h2>
-        <div class="grid g-3 anim-up" style="margin-top: 40px">
-          <div class="box">
-            <div class="icon-box"><i class="fas fa-comments"></i></div>
-            <h3>Organized Channels</h3>
-            <p>
-              Keep conversations focused with dedicated channels for every
-              topic.
-            </p>
-          </div>
-          <div class="box">
-            <div class="icon-box"><i class="fas fa-video"></i></div>
-            <h3>Live Audio & Video</h3>
-            <p>
-              Host town halls, AMAs, or casual hangouts directly in your space.
-            </p>
-          </div>
-          <div class="box">
-            <div class="icon-box"><i class="fas fa-robot"></i></div>
-            <h3>Auto Moderation</h3>
-            <p>Keep your community safe with AI tools that filter spam.</p>
-          </div>
-        </div>
-      </div>
+            <label for="chk-dark" class="btn-dark-toggle">
+              <i class="fas fa-moon moon-icon"></i>
+              <i class="fas fa-sun sun-icon"></i>
+            </label>
 
-      <div class="cont" style="margin-bottom: 60px">
+            <label for="chk-login" style="color: #ef4444">Logout</label>
+          </div>
+
+          <label for="chk-menu" class="menu-btn">
+            <i class="fas fa-bars"></i>
+          </label>
+        </div>
+      </nav>
+      <div class="mob-menu">
         <div
           style="
-            background: var(--dark);
-            border-radius: 20px;
-            padding: 50px;
-            color: white;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
           "
         >
-          <div class="grid g-2" style="align-items: center">
-            <div>
-              <h2 style="color: white">Move faster with Gatherly</h2>
-              <p style="color: #94a3b8; font-size: 1.1rem">
-                Whether you're a creator or enterprise, we scale with you.
-                Custom roles, API, and analytics included.
+          <span class="brand">Menu</span>
+          <label for="chk-menu"
+            ><i class="fas fa-times" style="font-size: 1.5rem"></i
+          ></label>
+        </div>
+        <label for="nav-features">Features</label>
+        <label for="nav-solutions">Solutions</label>
+        <label for="nav-pricing">Pricing</label>
+        <label for="nav-login">Sign In</label>
+        <label for="chk-dark">Toggle Dark Mode</label>
+      </div>
+      <div id="p-home" class="page">
+        <div class="hero">
+          <div class="blob" style="top: -20%; left: -10%"></div>
+          <div
+            class="blob"
+            style="
+              bottom: -20%;
+              right: -10%;
+              background: radial-gradient(circle, #bae6fd 0%, transparent 70%);
+            "
+          ></div>
+          <div class="cont">
+            <div class="anim-up">
+              <span class="badge">New: AI Summaries</span>
+              <h1>
+                Where Communities <br /><span class="txt-green"
+                  >Come to Life</span
+                >
+              </h1>
+              <p
+                style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px"
+              >
+                Replace noisy group chats with Gatherly. Organize discussions,
+                host events, and grow your tribe.
               </p>
-              <button
-                class="btn"
-                style="background: white; color: var(--dark)"
-                onclick="go('features')"
-              >
-                Explore features
-              </button>
-            </div>
-            <div
-              style="
-                background: rgba(255, 255, 255, 0.1);
-                padding: 30px;
-                border-radius: 15px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-              "
-            >
-              <div
-                style="display: flex; align-items: center; margin-bottom: 15px"
-              >
-                <img
-                  src="https://i.pravatar.cc/150?img=12"
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    margin-right: 10px;
-                  "
-                />
-                <div>
-                  <div><strong>Alex User</strong></div>
-                  <div style="font-size: 0.8rem; color: #ccc">Manager</div>
-                </div>
+              <div style="margin-bottom: 20px">
+                <label
+                  for="nav-login"
+                  class="btn"
+                  style="padding: 15px 35px; margin: 5px"
+                  >Get started for free</label
+                >
+                <label
+                  for="nav-contact"
+                  class="btn-out"
+                  style="padding: 15px 35px; margin: 5px"
+                  >Talk to sales</label
+                >
               </div>
-              <p style="color: #eee">
-                "Gatherly changed how we manage our 50k+ member community.
-                Engagement is up 40%!"
+              <p class="sm-txt">No credit card required • Cancel anytime</p>
+            </div>
+          </div>
+        </div>
+        <div class="cont" style="padding: 60px 20px">
+          <h2 class="center">Everything you need to grow</h2>
+          <div class="grid g-3 anim-up" style="margin-top: 40px">
+            <div class="box">
+              <div class="icon-box"><i class="fas fa-comments"></i></div>
+              <h3>Organized Channels</h3>
+              <p>
+                Keep conversations focused with dedicated channels for every
+                topic.
               </p>
+            </div>
+            <div class="box">
+              <div class="icon-box"><i class="fas fa-video"></i></div>
+              <h3>Live Audio & Video</h3>
+              <p>
+                Host town halls, AMAs, or casual hangouts directly in your
+                space.
+              </p>
+            </div>
+            <div class="box">
+              <div class="icon-box"><i class="fas fa-robot"></i></div>
+              <h3>Auto Moderation</h3>
+              <p>Keep your community safe with AI tools that filter spam.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="p-features" class="page">
-      <div class="cont" style="padding: 60px 20px">
-        <div class="center" style="max-width: 700px; margin: 0 auto 50px">
-          <span class="badge">Features</span>
-          <h1>Powerful tools</h1>
-          <p style="font-size: 1.2rem">
-            Everything needed to engage and manage members.
-          </p>
-        </div>
-
-        <div class="grid g-2" style="align-items: center; margin-bottom: 80px">
-          <div>
-            <div class="icon-box"><i class="fas fa-layer-group"></i></div>
-            <h2>Custom Spaces</h2>
-            <p>
-              Design your community to match your brand. No coding required.
+      <div id="p-features" class="page">
+        <div class="cont" style="padding: 60px 20px">
+          <div class="center" style="max-width: 700px; margin: 0 auto 50px">
+            <span class="badge">Features</span>
+            <h1>Powerful tools</h1>
+            <p style="font-size: 1.2rem">
+              Everything needed to engage and manage members.
             </p>
-            <ul style="list-style: none; margin-top: 20px">
-              <li><i class="fas fa-check txt-green"></i> Custom CSS</li>
-              <li><i class="fas fa-check txt-green"></i> Drag-and-drop</li>
-              <li><i class="fas fa-check txt-green"></i> Dark Mode</li>
-            </ul>
-          </div>
-          <div class="box" style="background: #f0fdf4; border: none">
-            <div
-              style="
-                background: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-              "
-            >
-              <div
-                style="
-                  height: 120px;
-                  background: #e2e8f0;
-                  border-radius: 5px;
-                  margin-bottom: 10px;
-                "
-              ></div>
-              <div
-                style="
-                  height: 15px;
-                  width: 70%;
-                  background: #f1f5f9;
-                  margin-bottom: 5px;
-                "
-              ></div>
-              <div style="height: 15px; width: 40%; background: #f1f5f9"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid g-3">
-          <div class="box">
-            <h4><i class="fas fa-chart-line txt-green"></i> Analytics</h4>
-            <p class="sm-txt">Track active members and retention.</p>
-          </div>
-          <div class="box">
-            <h4>
-              <i class="fas fa-money-bill-wave txt-green"></i> Monetization
-            </h4>
-            <p class="sm-txt">Subscriptions and paid events.</p>
-          </div>
-          <div class="box">
-            <h4><i class="fas fa-mobile-alt txt-green"></i> Mobile App</h4>
-            <p class="sm-txt">iOS and Android support included.</p>
-          </div>
-          <div class="box">
-            <h4><i class="fas fa-puzzle-piece txt-green"></i> API</h4>
-            <p class="sm-txt">Connect with Zapier, Slack, etc.</p>
-          </div>
-          <div class="box">
-            <h4><i class="fas fa-shield-alt txt-green"></i> Safety</h4>
-            <p class="sm-txt">Granular permissions and logs.</p>
-          </div>
-          <div class="box">
-            <h4><i class="fas fa-globe txt-green"></i> Global CDN</h4>
-            <p class="sm-txt">Fast loading anywhere.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="p-solutions" class="page">
-      <div class="cont" style="padding-top: 60px">
-        <h1 class="center">Solutions for everyone</h1>
-        <div class="grid g-2" style="margin-top: 40px">
-          <div class="box" style="background: #f8fafc">
-            <i
-              class="fas fa-users txt-green"
-              style="font-size: 2rem; margin-bottom: 15px"
-            ></i>
-            <h2>Creators</h2>
-            <p>Turn your audience into a business. Own your data.</p>
-            <button class="btn-txt" onclick="go('features')">
-              Learn more &rarr;
-            </button>
-          </div>
-          <div class="box" style="background: #f0fdf4">
-            <i
-              class="fas fa-building txt-green"
-              style="font-size: 2rem; margin-bottom: 15px"
-            ></i>
-            <h2>Brands</h2>
-            <p>Decrease support costs with a branded community.</p>
-            <button class="btn-txt" onclick="go('enterprise')">
-              See enterprise &rarr;
-            </button>
-          </div>
-          <div class="box" style="background: #fff7ed">
-            <i
-              class="fas fa-graduation-cap"
-              style="font-size: 2rem; margin-bottom: 15px; color: #ea580c"
-            ></i>
-            <h2>Education</h2>
-            <p>Create cohort-based courses with discussion groups.</p>
-          </div>
-          <div class="box" style="background: #eff6ff">
-            <i
-              class="fas fa-heart"
-              style="font-size: 2rem; margin-bottom: 15px; color: #2563eb"
-            ></i>
-            <h2>Non-Profits</h2>
-            <p>Organize volunteers in a centralized hub.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="p-enterprise" class="page">
-      <div class="cont" style="padding-top: 60px">
-        <div class="grid g-2" style="align-items: center">
-          <div>
-            <span class="badge" style="background: #1e293b; color: white"
-              >Enterprise</span
-            >
-            <h1>Scale with confidence</h1>
-            <p style="font-size: 1.1rem">
-              Security, compliance, and control for large orgs.
-            </p>
-            <div style="margin: 30px 0">
-              <p>
-                <i class="fas fa-check-circle txt-green"></i> SSO (SAML & OIDC)
-              </p>
-              <p>
-                <i class="fas fa-check-circle txt-green"></i> 99.99% Uptime SLA
-              </p>
-              <p>
-                <i class="fas fa-check-circle txt-green"></i> Success Manager
-              </p>
-              <p>
-                <i class="fas fa-check-circle txt-green"></i> Custom Data
-                Residency
-              </p>
-            </div>
-            <button class="btn" onclick="go('contact')">Contact Sales</button>
           </div>
           <div
-            class="box"
-            style="background: #0f172a; border: 1px solid #334155"
+            class="grid g-2"
+            style="align-items: center; margin-bottom: 80px"
           >
-            <div class="center" style="padding: 30px; color: white">
+            <div>
+              <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+              <h2>Custom Spaces</h2>
+              <p>
+                Design your community to match your brand. No coding required.
+              </p>
+              <ul style="list-style: none; margin-top: 20px">
+                <li><i class="fas fa-check txt-green"></i> Custom CSS</li>
+                <li><i class="fas fa-check txt-green"></i> Drag-and-drop</li>
+                <li><i class="fas fa-check txt-green"></i> Dark Mode</li>
+              </ul>
+            </div>
+            <div class="box" style="background: #f0fdf4; border: none">
+              <div
+                style="
+                  background: white;
+                  padding: 20px;
+                  border-radius: 10px;
+                  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                "
+              >
+                <div
+                  style="
+                    height: 120px;
+                    background: #e2e8f0;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                  "
+                ></div>
+                <div
+                  style="
+                    height: 15px;
+                    width: 70%;
+                    background: #f1f5f9;
+                    margin-bottom: 5px;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="p-solutions" class="page">
+        <div class="cont" style="padding-top: 60px">
+          <h1 class="center">Solutions for everyone</h1>
+          <div class="grid g-2" style="margin-top: 40px">
+            <div class="box" style="background: #f8fafc">
               <i
-                class="fas fa-lock"
-                style="font-size: 3rem; margin-bottom: 20px; color: #94a3b8"
+                class="fas fa-users txt-green"
+                style="font-size: 2rem; margin-bottom: 15px"
               ></i>
-              <h3>SOC2 Type II</h3>
-              <p style="color: #64748b">Strictest security standards.</p>
+              <h2>Creators</h2>
+              <p>Turn your audience into a business. Own your data.</p>
+              <label for="nav-features" class="btn-txt"
+                >Learn more &rarr;</label
+              >
+            </div>
+            <div class="box" style="background: #f0fdf4">
+              <i
+                class="fas fa-building txt-green"
+                style="font-size: 2rem; margin-bottom: 15px"
+              ></i>
+              <h2>Brands</h2>
+              <p>Decrease support costs with a branded community.</p>
+              <label for="nav-enterprise" class="btn-txt"
+                >See enterprise &rarr;</label
+              >
+            </div>
+            <div class="box" style="background: #fff7ed">
+              <i
+                class="fas fa-graduation-cap"
+                style="font-size: 2rem; margin-bottom: 15px; color: #ea580c"
+              ></i>
+              <h2>Education</h2>
+              <p>Create cohort-based courses with discussion groups.</p>
+            </div>
+            <div class="box" style="background: #eff6ff">
+              <i
+                class="fas fa-heart"
+                style="font-size: 2rem; margin-bottom: 15px; color: #2563eb"
+              ></i>
+              <h2>Non-Profits</h2>
+              <p>Organize volunteers in a centralized hub.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="p-pricing" class="page">
-      <div class="cont" style="padding: 60px 20px">
-        <div class="center" style="margin-bottom: 40px">
-          <span class="badge">Plans</span>
-          <h1>Simple Pricing</h1>
-          <p>Start free, upgrade anytime.</p>
-        </div>
-
-        <div class="grid g-3">
-          <div class="p-card" onclick="go('login')">
-            <h3>Starter</h3>
-            <div class="cost">$0 <span>/mo</span></div>
-            <p class="sm-txt">Hobbyists & small groups.</p>
-            <button class="btn-out w-100" style="width: 100%; margin: 20px 0">
-              Get Started
-            </button>
-            <div class="sm-txt" style="text-align: left">
-              <p><i class="fas fa-check txt-green"></i> 100 members</p>
-              <p><i class="fas fa-check txt-green"></i> 5 Channels</p>
+      <div id="p-enterprise" class="page">
+        <div class="cont" style="padding-top: 60px">
+          <div class="grid g-2" style="align-items: center">
+            <div>
+              <span class="badge" style="background: #1e293b; color: white"
+                >Enterprise</span
+              >
+              <h1>Scale with confidence</h1>
+              <p style="font-size: 1.1rem">
+                Security, compliance, and control for large orgs.
+              </p>
+              <div style="margin: 30px 0">
+                <p>
+                  <i class="fas fa-check-circle txt-green"></i> SSO (SAML &
+                  OIDC)
+                </p>
+                <p>
+                  <i class="fas fa-check-circle txt-green"></i> 99.99% Uptime
+                  SLA
+                </p>
+                <p>
+                  <i class="fas fa-check-circle txt-green"></i> Success Manager
+                </p>
+              </div>
+              <label for="nav-contact" class="btn" style="margin-top: 20px"
+                >Contact Sales</label
+              >
             </div>
-          </div>
-
-          <div class="p-card pop" onclick="go('login')">
             <div
-              style="
-                position: absolute;
-                top: 0;
-                right: 0;
-                background: var(--green);
-                color: white;
-                font-size: 0.7rem;
-                padding: 5px 10px;
-                border-bottom-left-radius: 10px;
-              "
+              class="box"
+              style="background: #0f172a; border: 1px solid #334155"
             >
-              POPULAR
-            </div>
-            <h3>Growth</h3>
-            <div class="cost">$29 <span>/mo</span></div>
-            <p class="sm-txt">Creators & Startups.</p>
-            <button class="btn w-100" style="width: 100%; margin: 20px 0">
-              Free Trial
-            </button>
-            <div class="sm-txt" style="text-align: left">
-              <p><i class="fas fa-check txt-green"></i> Unlimited members</p>
-              <p><i class="fas fa-check txt-green"></i> Unlimited Channels</p>
-              <p><i class="fas fa-check txt-green"></i> Custom Domain</p>
-            </div>
-          </div>
-
-          <div class="p-card" onclick="go('contact')">
-            <h3>Scale</h3>
-            <div class="cost">Custom</div>
-            <p class="sm-txt">Large Orgs.</p>
-            <button class="btn-out w-100" style="width: 100%; margin: 20px 0">
-              Contact Sales
-            </button>
-            <div class="sm-txt" style="text-align: left">
-              <p><i class="fas fa-check txt-green"></i> SSO & Audit Logs</p>
-              <p><i class="fas fa-check txt-green"></i> Priority Support</p>
+              <div class="center" style="padding: 30px; color: white">
+                <i
+                  class="fas fa-lock"
+                  style="font-size: 3rem; margin-bottom: 20px; color: #94a3b8"
+                ></i>
+                <h3>SOC2 Type II</h3>
+                <p style="color: #64748b">Strictest security standards.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="p-resources" class="page">
-      <div class="cont" style="padding-top: 60px">
-        <h1 class="center">Resources</h1>
-        <div class="grid g-3" style="margin-top: 40px">
-          <div class="box">
-            <div
-              style="
-                height: 150px;
-                background: #cbd5e1;
-                border-radius: 5px;
-                margin-bottom: 15px;
-              "
-            ></div>
-            <span class="txt-green sm-txt" style="font-weight: bold"
-              >GUIDE</span
-            >
-            <h3>Launch your first community</h3>
-            <p class="sm-txt">Playbook for getting your first 100 members.</p>
-            <a class="txt-green sm-txt">Read more &rarr;</a>
+      <div id="p-pricing" class="page">
+        <div class="cont" style="padding: 60px 20px">
+          <div class="center" style="margin-bottom: 40px">
+            <span class="badge">Plans</span>
+            <h1>Simple Pricing</h1>
           </div>
-          <div class="box">
-            <div
-              style="
-                height: 150px;
-                background: #cbd5e1;
-                border-radius: 5px;
-                margin-bottom: 15px;
-              "
-            ></div>
-            <span class="txt-green sm-txt" style="font-weight: bold"
-              >CASE STUDY</span
-            >
-            <h3>Scaling to 1M users</h3>
-            <p class="sm-txt">How TechFlow used Gatherly for growth.</p>
-            <a class="txt-green sm-txt">Read more &rarr;</a>
-          </div>
-          <div class="box">
-            <div
-              style="
-                height: 150px;
-                background: #cbd5e1;
-                border-radius: 5px;
-                margin-bottom: 15px;
-              "
-            ></div>
-            <span class="txt-green sm-txt" style="font-weight: bold"
-              >WEBINAR</span
-            >
-            <h3>Management 101</h3>
-            <p class="sm-txt">Watch our latest workshop recording.</p>
-            <a class="txt-green sm-txt">Watch now &rarr;</a>
+          <div class="grid g-3">
+            <div class="p-card">
+              <h3>Starter</h3>
+              <div class="cost">$0 <span>/mo</span></div>
+              <p class="sm-txt">Hobbyists & small groups.</p>
+              <label
+                for="nav-login"
+                class="btn-out w-100"
+                style="width: 100%; margin: 20px 0"
+                >Get Started</label
+              >
+            </div>
+            <div class="p-card pop">
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  background: #059669;
+                  color: white;
+                  font-size: 0.7rem;
+                  padding: 5px 10px;
+                  border-bottom-left-radius: 10px;
+                "
+              >
+                POPULAR
+              </div>
+              <h3>Growth</h3>
+              <div class="cost">$29 <span>/mo</span></div>
+              <p class="sm-txt">Creators & Startups.</p>
+              <label
+                for="nav-login"
+                class="btn w-100"
+                style="width: 100%; margin: 20px 0"
+                >Free Trial</label
+              >
+            </div>
+            <div class="p-card">
+              <h3>Scale</h3>
+              <div class="cost">Custom</div>
+              <p class="sm-txt">Large Orgs.</p>
+              <label
+                for="nav-contact"
+                class="btn-out w-100"
+                style="width: 100%; margin: 20px 0"
+                >Contact Sales</label
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="p-contact" class="page">
-      <div class="cont" style="padding-top: 60px; max-width: 600px">
-        <div class="center" style="margin-bottom: 30px">
-          <h1>Contact Us</h1>
-          <p>We'd love to help you find the right solution.</p>
+      <div id="p-resources" class="page">
+        <div class="cont" style="padding-top: 60px">
+          <h1 class="center">Resources</h1>
+          <div class="grid g-3" style="margin-top: 40px">
+            <div class="box">
+              <div
+                style="
+                  height: 150px;
+                  background: #cbd5e1;
+                  border-radius: 5px;
+                  margin-bottom: 15px;
+                "
+              ></div>
+              <span class="txt-green sm-txt" style="font-weight: bold"
+                >GUIDE</span
+              >
+              <h3>Launch your first community</h3>
+              <p class="sm-txt">Playbook for getting your first 100 members.</p>
+              <a class="txt-green sm-txt" style="cursor: pointer"
+                >Read more &rarr;</a
+              >
+            </div>
+            <div class="box">
+              <div
+                style="
+                  height: 150px;
+                  background: #cbd5e1;
+                  border-radius: 5px;
+                  margin-bottom: 15px;
+                "
+              ></div>
+              <span class="txt-green sm-txt" style="font-weight: bold"
+                >CASE STUDY</span
+              >
+              <h3>Scaling to 1M users</h3>
+              <p class="sm-txt">How TechFlow used Gatherly for growth.</p>
+              <a class="txt-green sm-txt" style="cursor: pointer"
+                >Read more &rarr;</a
+              >
+            </div>
+            <div class="box">
+              <div
+                style="
+                  height: 150px;
+                  background: #cbd5e1;
+                  border-radius: 5px;
+                  margin-bottom: 15px;
+                "
+              ></div>
+              <span class="txt-green sm-txt" style="font-weight: bold"
+                >WEBINAR</span
+              >
+              <h3>Management 101</h3>
+              <p class="sm-txt">Watch our latest workshop recording.</p>
+              <a class="txt-green sm-txt" style="cursor: pointer"
+                >Watch now &rarr;</a
+              >
+            </div>
+          </div>
         </div>
-        <div class="box">
-          <form onsubmit="event.preventDefault(); alert('Sent!'); go('home');">
+      </div>
+      <div id="p-contact" class="page">
+        <div class="cont" style="padding-top: 60px; max-width: 600px">
+          <div class="center" style="margin-bottom: 30px">
+            <h1>Contact Us</h1>
+            <p>We'd love to help you find the right solution.</p>
+          </div>
+          <div class="box">
             <div style="margin-bottom: 15px">
               <label style="font-weight: 600">Email</label>
               <input
@@ -538,7 +433,6 @@
                   border: 1px solid #ccc;
                   border-radius: 5px;
                 "
-                required
               />
             </div>
             <div style="margin-bottom: 15px">
@@ -568,25 +462,26 @@
                 "
               ></textarea>
             </div>
-            <button class="btn w-100" style="width: 100%">Submit</button>
-          </form>
+            <label for="nav-home" class="btn w-100" style="width: 100%"
+              >Submit</label
+            >
+          </div>
         </div>
       </div>
-    </div>
-
-    <div id="p-login" class="page">
-      <div
-        style="
-          height: 80vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        "
-      >
-        <div class="box" style="width: 100%; max-width: 400px">
-          <h2 class="center">Welcome Back</h2>
-          <p class="center" style="margin-bottom: 20px">Sign in to continue</p>
-          <form onsubmit="logIn(event)">
+      <div id="p-login" class="page">
+        <div
+          style="
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div class="box" style="width: 100%; max-width: 400px">
+            <h2 class="center">Welcome Back</h2>
+            <p class="center" style="margin-bottom: 20px">
+              Sign in to continue
+            </p>
             <div style="margin-bottom: 15px">
               <label style="font-weight: 600">Email</label>
               <input
@@ -613,216 +508,224 @@
                 "
               />
             </div>
-            <button class="btn w-100" style="width: 100%">Sign In</button>
-          </form>
-          <div class="center sm-txt" style="margin-top: 20px">
-            <a
-              onclick="go('forgot')"
-              style="color: var(--green); font-weight: 600"
-              >Forgot password?</a
+            <label for="chk-login" class="btn w-100" style="width: 100%"
+              >Sign In</label
             >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="p-forgot" class="page">
-      <div
-        style="
-          height: 80vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        "
-      >
-        <div class="box" style="width: 100%; max-width: 400px">
-          <h2 class="center">Reset Password</h2>
-          <p class="center" style="margin-bottom: 20px">
-            Enter email to get link
-          </p>
-          <form
-            onsubmit="event.preventDefault(); alert('Link sent!'); go('login');"
-          >
-            <div style="margin-bottom: 20px">
-              <label style="font-weight: 600">Email</label>
-              <input
-                type="email"
-                placeholder="you@company.com"
-                class="w-100"
-                style="
-                  padding: 10px;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                "
-                required
-              />
+            <div class="center sm-txt" style="margin-top: 20px">
+              <a style="color: #059669; font-weight: 600; cursor: pointer"
+                >Forgot password?</a
+              >
             </div>
-            <button class="btn w-100" style="width: 100%; margin-bottom: 10px">
-              Send Link
-            </button>
-            <button
-              type="button"
-              onclick="go('login')"
-              class="btn-out w-100"
-              style="width: 100%"
-            >
-              Back to Sign In
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div id="p-dash" class="page" style="padding-top: 70px">
-      <div class="app-main">
-        <div class="side">
-          <div style="padding: 20px">
-            <h4
-              style="
-                color: #6ee7b7;
-                font-size: 0.8rem;
-                text-transform: uppercase;
-              "
-            >
-              Communities
-            </h4>
-            <div style="margin-top: 10px" id="c-list"></div>
           </div>
         </div>
-        <div class="feed">
-          <div class="cont" style="max-width: 800px; margin: 0 auto">
-            <div
-              class="box"
-              style="margin-bottom: 20px; display: flex; gap: 10px"
-            >
-              <img
-                src="https://i.pravatar.cc/150?img=12"
-                style="width: 40px; height: 40px; border-radius: 50%"
-              />
-              <div style="flex: 1">
-                <textarea
-                  placeholder="Share update..."
+      </div>
+      <div id="p-dash" class="page">
+        <div class="app-main">
+          <div class="side">
+            <div style="padding: 20px">
+              <h4
+                style="
+                  color: #6ee7b7;
+                  font-size: 0.8rem;
+                  text-transform: uppercase;
+                "
+              >
+                Communities
+              </h4>
+              <div style="margin-top: 10px">
+                <div class="chn-item">
+                  <div
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      background: #34d399;
+                      border-radius: 50%;
+                    "
+                  ></div>
+                  Eco Warriors
+                </div>
+                <div class="chn-item">
+                  <div
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      background: #34d399;
+                      border-radius: 50%;
+                    "
+                  ></div>
+                  Tech Startups
+                </div>
+                <div id="hidden-comm" class="chn-item" style="display: none">
+                  <div
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      background: #34d399;
+                      border-radius: 50%;
+                    "
+                  ></div>
+                  New Space
+                </div>
+                <div
                   style="
-                    width: 100%;
-                    border: 1px solid #ddd;
-                    padding: 10px;
-                    border-radius: 5px;
-                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    padding-top: 10px;
+                    border-top: 1px solid #eee;
                   "
-                ></textarea>
-                <div style="display: flex; justify-content: space-between">
-                  <i
-                    class="fas fa-image"
-                    style="color: #aaa; padding-top: 5px"
-                  ></i>
-                  <button
-                    class="btn"
-                    style="padding: 6px 15px; font-size: 0.9rem"
+                >
+                  <input
+                    type="text"
+                    placeholder="Space name"
+                    style="
+                      width: 100%;
+                      padding: 5px;
+                      margin-bottom: 5px;
+                      border: 1px solid #ddd;
+                    "
+                  />
+                  <label
+                    for="chk-new-comm"
+                    class="btn-txt"
+                    style="font-size: 0.8rem; color: #059669"
+                    >+ Add Space</label
                   >
-                    Post
-                  </button>
                 </div>
               </div>
             </div>
-            <div id="feed-box"></div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="p-create" class="page">
-      <div class="cont" style="padding-top: 50px; max-width: 600px">
-        <div class="box">
-          <h2>Create Space</h2>
-          <form onsubmit="createSpace(event)">
-            <div style="margin-bottom: 20px">
-              <label>Name</label>
-              <input
-                id="space-name"
-                type="text"
-                class="w-100"
-                style="
-                  padding: 10px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                "
-                required
-              />
+          <div class="feed">
+            <div class="cont" style="max-width: 800px; margin: 0 auto">
+              <div
+                class="box"
+                style="margin-bottom: 20px; display: flex; gap: 10px"
+              >
+                <img
+                  src="https://i.pravatar.cc/150?img=12"
+                  style="width: 40px; height: 40px; border-radius: 50%"
+                />
+                <div style="flex: 1">
+                  <textarea
+                    placeholder="Share update..."
+                    style="
+                      width: 100%;
+                      border: 1px solid #ddd;
+                      padding: 10px;
+                      border-radius: 5px;
+                      margin-bottom: 10px;
+                    "
+                  ></textarea>
+                  <div style="display: flex; justify-content: space-between">
+                    <i
+                      class="fas fa-image"
+                      style="color: #aaa; padding-top: 5px"
+                    ></i>
+                    <label
+                      for="chk-new-post"
+                      class="btn"
+                      style="padding: 6px 15px; font-size: 0.9rem"
+                      >Post</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div id="feed-box">
+                <div
+                  id="hidden-post"
+                  class="box"
+                  style="margin-bottom: 15px; display: none"
+                >
+                  <div style="display: flex; gap: 10px; margin-bottom: 5px">
+                    <strong>Alex User</strong>
+                    <span style="color: #888; font-size: 0.9rem">Just now</span>
+                  </div>
+                  <p>Here is my new update! (This is a static CSS demo)</p>
+                </div>
+                <div class="box" style="margin-bottom: 15px">
+                  <div style="display: flex; gap: 10px; margin-bottom: 5px">
+                    <strong>Alice</strong>
+                    <span style="color: #888; font-size: 0.9rem">2h ago</span>
+                  </div>
+                  <p>Just planted 50 trees! 🌲</p>
+                </div>
+                <div class="box" style="margin-bottom: 15px">
+                  <div style="display: flex; gap: 10px; margin-bottom: 5px">
+                    <strong>John</strong>
+                    <span style="color: #888; font-size: 0.9rem">4h ago</span>
+                  </div>
+                  <p>Anyone tried the new React compiler?</p>
+                </div>
+              </div>
             </div>
-            <button class="btn w-100" style="width: 100%">Create</button>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div id="p-profile" class="page">
-      <div class="cont" style="padding-top: 50px; max-width: 800px">
-        <div class="box center">
-          <img
-            src="https://i.pravatar.cc/150?img=12"
-            style="
-              width: 100px;
-              height: 100px;
-              border-radius: 50%;
-              margin: 0 auto 20px;
-            "
-          />
-          <h2>Alex User</h2>
-          <p>@alex_green</p>
-          <div
-            style="
-              display: flex;
-              justify-content: center;
-              gap: 20px;
-              margin-top: 20px;
-            "
-          >
-            <div class="box" style="padding: 10px 20px">
-              <strong>12</strong> Communities
+      <footer id="ftr">
+        <div class="cont" style="padding: 60px 20px">
+          <div class="grid g-4">
+            <div>
+              <h5>Gatherly</h5>
+              <p class="sm-txt">Community platform.</p>
             </div>
-            <div class="box" style="padding: 10px 20px">
-              <strong>340</strong> Followers
+            <div>
+              <h5>Product</h5>
+              <ul style="list-style: none">
+                <li>
+                  <label
+                    for="nav-features"
+                    style="cursor: pointer; font-size: 0.9rem"
+                    >Features</label
+                  >
+                </li>
+                <li>
+                  <label
+                    for="nav-pricing"
+                    style="cursor: pointer; font-size: 0.9rem"
+                    >Pricing</label
+                  >
+                </li>
+                <li>
+                  <label
+                    for="nav-enterprise"
+                    style="cursor: pointer; font-size: 0.9rem"
+                    >Enterprise</label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5>Resources</h5>
+              <ul style="list-style: none">
+                <li>
+                  <label
+                    for="nav-resources"
+                    style="cursor: pointer; font-size: 0.9rem"
+                    >Blog</label
+                  >
+                </li>
+                <li>
+                  <label
+                    for="nav-solutions"
+                    style="cursor: pointer; font-size: 0.9rem"
+                    >Guides</label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5>Legal</h5>
+              <ul style="list-style: none">
+                <li>
+                  <a style="cursor: pointer; font-size: 0.9rem">Privacy</a>
+                </li>
+                <li><a style="cursor: pointer; font-size: 0.9rem">Terms</a></li>
+              </ul>
             </div>
           </div>
+          <div class="center sm-txt" style="margin-top: 40px; opacity: 0.5">
+            &copy; 2025 Gatherly.
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
-
-    <footer id="ftr">
-      <div class="cont">
-        <div class="grid g-4">
-          <div>
-            <h5>Gatherly</h5>
-            <p class="sm-txt">Community platform.</p>
-          </div>
-          <div>
-            <h5>Product</h5>
-            <ul>
-              <li><a onclick="go('features')">Features</a></li>
-              <li><a onclick="go('pricing')">Pricing</a></li>
-              <li><a onclick="go('enterprise')">Enterprise</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>Resources</h5>
-            <ul>
-              <li><a onclick="go('resources')">Blog</a></li>
-              <li><a onclick="go('solutions')">Guides</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>Legal</h5>
-            <ul>
-              <li><a>Privacy</a></li>
-              <li><a>Terms</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="center sm-txt" style="margin-top: 40px; opacity: 0.5">
-          &copy; 2025 Gatherly.
-        </div>
-      </div>
-    </footer>
-    <script src="script.js"></script>
   </body>
 </html>
