@@ -2,69 +2,83 @@ Gatherly 🌿
 
 Gatherly is a modern, responsive, and interactive community platform designed to replace noisy group chats with organized, purpose-driven spaces.
 
+It features navigation, login simulation, dark mode, and interactive modals, all achieved through advanced layout techniques like the "Checkbox Hack" and Peer Selectors.
+
 🚀 Features
 
-Single Page Application (SPA): Fast, seamless navigation without page reloads.
+Pure HTML/CSS: All logic is handled via styles and markup.
 
-Community Management: Create, join, and organize communities.
+Single Page Application (SPA): Instant navigation without page reloads.
 
-Interactive Dashboard: A Slack-like interface for managing feeds and channels.
+Dark Mode: A fully functional theme toggle that switches colors and icons.
 
-Responsive Design: Fully optimized for Desktop, Tablet, and Mobile devices.
+Responsive Design: Works on mobile, tablet, and desktop.
 
-Simulated Auth System: Login/Logout functionality with state management.
+Interactive UI:
 
-Zero Dependencies: Built entirely with Vanilla HTML, CSS, and JavaScript.
+Mobile Hamburger Menu (freezes background scroll).
 
-🛠️ Tech Stack
+Login Simulation (swaps navigation bars and redirects).
 
-HTML5: Semantic structure.
+"Post" and "Create Space" simulations.
 
-CSS3: Custom Flexbox/Grid layouts, CSS Variables, and Glassmorphism effects.
+Sticky Footer: Stays at the bottom of the viewport regardless of content size.
 
-JavaScript (ES6): DOM manipulation, routing logic, and data handling.
+🛠️ How It Works (The Mechanics)
 
-Icons: FontAwesome 6.4 via CDN.
+You might wonder: How does the page interact and change states using only styles?
+
+This project uses a technique commonly known as the Checkbox/Radio Hack.
+
+1. The Hidden Engine
+
+At the top of the index.html file, there is a list of hidden <input> elements (Radio buttons and Checkboxes). These act as the "State Manager" for the application.
+
+<!-- Example of the hidden controllers -->
+<input type="radio" name="page" id="nav-home" class="controller" checked>
+<input type="checkbox" id="chk-dark" class="controller">
+
+
+2. The Remote Controls
+
+We use HTML <label> tags as buttons. When you click a label (like a navigation link), the browser automatically checks the corresponding hidden input.
+
+3. The CSS Logic
+
+We use the CSS Sibling Selector (~) to change the visible content based on which input is checked.
+
+Navigation: When the nav-home radio is checked, CSS hides all other pages and reveals the #p-home div.
+
+Dark Mode: When the chk-dark checkbox is checked, CSS overrides the color variables for the main wrapper.
+
+Login: When chk-login is checked, CSS hides the public navigation and reveals the dashboard.
 
 📂 Project Structure
 
-The entire project is contained within a single file for portability and ease of understanding:
+Since this is a simple prototype, everything is contained in a single file for easy portability.
 
-index.html: Contains the HTML structure, CSS styles (<style>), and JavaScript logic (<script>).
+index.html: Contains the HTML structure, the CSS logic (in the <style> tag), and all page views.
 
-🔧 How to Run
+💻 How to Run
 
 Download the index.html file.
 
-Open the file in any modern web browser (Chrome, Firefox, Safari, Edge).
+Double-click it to open it in any web browser (Chrome, Safari, Firefox).
 
-Enjoy! No installation, npm install, or server setup required.
+That's it!
 
-📖 How to Use
+🎨 Design System
 
-Landing Page: Explore features, pricing, and solutions.
+Font: Segoe UI / Sans-serif.
 
-Login: Click "Sign In" (Use any email/password or the default demo@gatherly.com).
+Primary Color: Emerald Green (#059669).
 
-Dashboard: Once logged in, you can view your feed.
+Light Theme: Slate/White background.
 
-Create: Click the "+" icon or "Create" tab to add a new community to the sidebar.
+Dark Theme: Pure Black (#000000) / Dark Grey (#111111).
 
-Responsive: Resize your browser or open dev tools to see the mobile menu action.
+📝 License
 
-🎨 Customization
-
-To customize the theme, simply edit the CSS variables at the top of the <style> block in index.html:
-
-:root {
-    --green: #059669;       /* Main Brand Color */
-    --dark: #0f172a;        /* Text/Footer Color */
-    --font: 'Segoe UI', sans-serif; /* Typography */
-}
-
-
-📄 License
-
-This project is open source and available for educational purposes.
+This project is open source and available for personal and educational use.
 
 Built with 💚 by Niranjan Singh(Gatherly Team)
