@@ -42,7 +42,7 @@
 }
 #chk-login:checked ~ .main-wrapper footer {
   display: none !important;
-} /* Hide Footer on Dash */
+} 
 
 #chk-login:checked ~ .main-wrapper #p-dash {
   display: block !important;
