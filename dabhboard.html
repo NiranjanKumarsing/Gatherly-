@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gatherly - Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-in flex j-bet">
+      <div class="logo"><i class="fas fa-users-rays"></i> Gatherly</div>
+      <div class="nav-lnks flex gap">
+        <button class="tog-theme"><i class="fas fa-adjust"></i></button>
+        <button class="btn-o do-logout">Logout</button>
+      </div>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <div class="mob flex col">
+    <div class="flex j-bet w-full mb">
+      <span class="logo">Menu</span>
+      <i class="fas fa-times close-menu" style="font-size:1.5rem"></i>
+    </div>
+    <a class="do-logout">Logout</a>
+  </div>
+
+  <div class="app-view">
+    <div class="side">
+      <div class="mb">
+        <h4 class="txt-p" style="font-size:0.8rem; text-transform:uppercase">My Spaces</h4>
+        <div class="mt" style="margin-top:10px">
+          <div class="item"><div class="dot"></div> Eco Warriors</div>
+          <div class="item"><div class="dot"></div> Tech Startups</div>
+          <div class="item"><i class="fas fa-plus"></i> Add New</div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div style="max-width: 700px; margin: 0 auto">
+        <div class="card mb flex gap">
+          <img src="https://i.pravatar.cc/150?img=12" style="width:40px; height:40px; border-radius:50%">
+          <div class="w-full">
+            <textarea class="inp" placeholder="Share an update..." rows="2" style="margin:0"></textarea>
+            <div class="flex j-bet mt" style="margin-top:10px">
+              <i class="fas fa-image txt-dim"></i>
+              <button class="btn" style="padding: 5px 15px">Post</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mb">
+          <div class="flex gap mb" style="margin-bottom:10px">
+            <strong>Alice</strong> <span class="txt-dim" style="font-size:0.8rem">2h ago</span>
+          </div>
+          <p>Just launched my new course on Gatherly! 🚀</p>
+        </div>
+        <div class="card mb">
+          <div class="flex gap mb" style="margin-bottom:10px">
+            <strong>John</strong> <span class="txt-dim" style="font-size:0.8rem">4h ago</span>
+          </div>
+          <p>Does anyone have the link to the town hall meeting?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
