@@ -1,59 +1,55 @@
-function switchPage(pageId) {
-  const pages = document.querySelectorAll(".page");
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
 
-  pages.forEach((page) => {
-    page.classList.remove("active");
+  const themeBtns = document.querySelectorAll('.tog-theme');
+  if (localStorage.getItem('theme') === 'dark') body.classList.add('dark');
+
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    });
   });
 
-  const target = document.getElementById(pageId);
+  const menuBtn = document.querySelector('.menu-btn');
+  const closeBtn = document.querySelector('.close-menu');
+  const mobMenu = document.querySelector('.mob');
 
-  if (target) {
-    target.classList.add("active");
+  if (menuBtn && mobMenu) {
+    menuBtn.addEventListener('click', () => mobMenu.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobMenu.classList.remove('open'));
   }
 
-  window.scrollTo(0, 0);
+  const isAuth = localStorage.getItem('user') === 'true';
+  const guestNav = document.querySelectorAll('.auth-guest');
+  const userNav = document.querySelectorAll('.auth-user');
 
-  const mobileMenu = document.getElementById("mobileMenu");
-  if (mobileMenu) {
-    mobileMenu.classList.remove("active");
-  }
-}
-
-function toggleTheme() {
-  document.body.classList.toggle("dark");
-}
-
-function toggleLogin() {
-  document.body.classList.toggle("logged-in");
-
-  if (document.body.classList.contains("logged-in")) {
-    switchPage("dashboard");
+  if (isAuth) {
+    guestNav.forEach(el => el.classList.add('hide'));
+    userNav.forEach(el => el.classList.remove('hide'));
   } else {
-    switchPage("home");
+    guestNav.forEach(el => el.classList.remove('hide'));
+    userNav.forEach(el => el.classList.add('hide'));
   }
-}
 
-function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  if (menu) {
-    menu.classList.toggle("active");
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      localStorage.setItem('user', 'true');
+      window.location.href = 'dashboard.html';
+    });
   }
-}
 
-function mockPost() {
-  const input = document.querySelector("textarea");
-  if (input && input.value.trim() !== "") {
-    alert("Post functionality is simulated.\n\nYou wrote: " + input.value);
-    input.value = "";
-  } else {
-    alert("Please write something to post.");
+  const logoutBtns = document.querySelectorAll('.do-logout');
+  logoutBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.removeItem('user');
+      window.location.href = 'index.html';
+    });
+  });
+
+  if (window.location.pathname.includes('dashboard.html') && !isAuth) {
+    window.location.href = 'login.html';
   }
-}
-function toggleMenu() {
-  var menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("active");
-}
-
-function toggleTheme() {
-  document.body.classList.toggle("dark");
-}
+});
