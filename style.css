@@ -11,6 +11,7 @@ body {
     line-height: 1.6;
 }
 
+/* Layout Utilities */
 .wrap {
     display: flex;
     flex-direction: column;
@@ -38,6 +39,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
 }
 
+/* Typography */
 h1 {
     font-size: 3.2rem;
     font-weight: 800;
@@ -63,6 +65,7 @@ h3 {
     color: #059669;
 }
 
+/* Buttons (Ungrouped) */
 .btn {
     cursor: pointer;
     text-decoration: none;
@@ -111,6 +114,7 @@ h3 {
     color: #fff;
 }
 
+/* UI Components (Ungrouped) */
 .box {
     background: white;
     border-radius: 15px;
@@ -165,6 +169,7 @@ h3 {
     margin-bottom: 20px;
 }
 
+/* Navigation (Ungrouped) */
 nav {
     position: sticky;
     top: 0;
@@ -219,6 +224,7 @@ nav {
     justify-content: center;
 }
 
+/* Main App Layout */
 .layout {
     display: flex;
     min-height: calc(100vh - 70px);
@@ -250,6 +256,7 @@ nav {
     color: #0f172a;
 }
 
+/* Utilities */
 footer {
     margin-top: auto;
     border-top: 1px solid #e2e8f0;
@@ -271,6 +278,7 @@ footer {
     z-index: -1;
 }
 
+/* Dark Mode (Ungrouped styling) */
 body.dark .wrap {
     background: #000;
     color: #eee;
@@ -364,6 +372,7 @@ body.dark footer {
     border-top-color: #333;
 }
 
+/* Mobile Menu */
 .mob {
     position: fixed;
     inset: 0;
@@ -371,6 +380,12 @@ body.dark footer {
     z-index: 2000;
     padding: 20px;
     flex-direction: column;
+    display: none; /* Fixed: Hidden by default */
+}
+
+/* Fixed: Active state to show menu */
+.mob.active {
+    display: flex;
 }
 
 .menu-btn {
@@ -389,7 +404,8 @@ body.dark .menu-btn {
     color: #fff;
 }
 
-@media (max-width: 768px) {
+/* Media Query Breakpoint */
+@media (max-width: 860px) {
     .links {
         display: none !important;
     }
