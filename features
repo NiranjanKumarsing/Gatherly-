@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gatherly - Features</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-in flex j-bet">
+      <a href="index.html" class="logo"><i class="fas fa-users-rays"></i> Gatherly</a>
+      <div class="nav-lnks flex gap">
+        <a href="index.html">Home</a>
+        <a href="features.html" class="act">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <button class="tog-theme"><i class="fas fa-adjust"></i></button>
+        <span style="width:1px; height:20px; background:var(--brd)"></span>
+        <a href="login.html" class="auth-guest">Sign in</a>
+        <a href="dashboard.html" class="btn auth-user hide">Dashboard</a>
+      </div>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <div class="mob flex col">
+    <div class="flex j-bet w-full mb">
+      <span class="logo">Menu</span>
+      <i class="fas fa-times close-menu" style="font-size:1.5rem"></i>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="login.html">Sign In</a>
+  </div>
+
+  <div class="wrap mt mb">
+    <div class="txt-c mb w-slim">
+      <span class="badge">Features</span>
+      <h1 class="mt">Powerful Tools</h1>
+      <p>Everything needed to engage and manage members.</p>
+    </div>
+    <div class="grid g2 flex">
+      <div>
+        <div class="mb"><i class="fas fa-layer-group txt-p" style="font-size: 2rem;"></i></div>
+        <h2>Custom Spaces</h2>
+        <p class="mb">Design your community to match your brand. No coding required.</p>
+        <ul>
+          <li class="flex gap mb"><i class="fas fa-check txt-p"></i> Custom CSS</li>
+          <li class="flex gap mb"><i class="fas fa-check txt-p"></i> Drag-and-drop</li>
+          <li class="flex gap mb"><i class="fas fa-check txt-p"></i> Dark Mode Support</li>
+        </ul>
+      </div>
+      <div class="card" style="background: #f0fdf4;">
+        <div class="card">
+          <div class="skel" style="height: 100px;"></div>
+          <div style="height: 15px; width: 70%; background: #f1f5f9; border-radius: 4px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="wrap txt-c">&copy; 2025 Gatherly.</div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
